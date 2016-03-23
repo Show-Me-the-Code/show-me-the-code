@@ -1,0 +1,17 @@
+# -*- coding: utf-8 -*-
+from PIL import Image,ImageFont,ImageDraw
+import random
+
+def add_num(image_path):
+    img=Image.open(image_path)
+    x,y=img.size
+    draw=ImageDraw.Draw(img)
+    text=str(random.randint(1,99))
+    myfont=ImageFont.truetype('Futura.ttf',100)
+    draw.text((x*3/4,0),text,font=myfont,fill='red')
+    
+    img.save('result.jpg','jpeg')
+    
+if '__name__'=='__main__':
+    add_num('pic.jpg')
+    
