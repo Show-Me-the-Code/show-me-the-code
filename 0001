@@ -1,0 +1,21 @@
+#!/usr/bin/env python
+#-*- coding: utf-8 -*-
+'''
+    生成200个长度为6的随机码
+'''
+import string,random
+
+def generateCodes(code_amount,code_len):
+    Strs=string.digits+string.letters
+    codes=[]
+    
+    while(code_amount>0):
+        code=''.join([random.choice(Strs) for i in range(code_len)])
+        if code not in codes:
+            codes.append(code)
+            code_amount-=1
+            
+    for i,code in enumerate(codes):
+        print i,code
+        
+generateCodes(200,6)
