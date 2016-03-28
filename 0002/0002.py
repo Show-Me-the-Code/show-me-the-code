@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+'''将随机码存入mysql'''
+
 import mysql.connector
 
 #读取文件
