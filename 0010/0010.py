@@ -8,15 +8,15 @@ import string
 def rnd_letter():
     return random.choice(string.letters)
 
-# 随机颜色1:
-def rndColor():
+# 随机背景颜色:
+def bg_color():
     return (random.randint(64, 255), random.randint(64, 255), random.randint(64, 255))
 
-# 随机颜色2:
-def rndColor2():
+# 随机字体颜色:
+def letter_color():
     return (random.randint(32, 127), random.randint(32, 127), random.randint(32, 127))
 
-# 240 x 60:
+# 图片尺寸240 x 60:
 width = 60 * 4
 height = 60
 
@@ -28,10 +28,10 @@ draw = ImageDraw.Draw(image)
 # 填充每个像素:
 for x in range(width):
     for y in range(height):
-        draw.point((x, y), fill=rndColor())
+        draw.point((x, y), fill=bg_color())
 # 输出文字:
 for t in range(4):
-    draw.text((60*t+15, 15), rnd_letter(), font=font, fill=rndColor2())
+    draw.text((60*t+15, 15), rnd_letter(), font=font, fill=letter_color())
 # 模糊:
 image = image.filter(ImageFilter.BLUR)
 image.save('result.jpg', 'jpeg')
